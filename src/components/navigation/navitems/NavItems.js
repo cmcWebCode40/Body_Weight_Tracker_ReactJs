@@ -9,13 +9,13 @@ const Nav = styled.nav`
      margin: 0rem 8rem  0 0;
 `
 const Ul = styled.ul`
-     display:flex; 
+     display: ${props => (props.opened ? 'block' : 'flex')}  ; 
      text-align:center;
      height : 100%;
      margin : -1rem  0 0 0 ;
 `
 
-function NavItems({ mobile, clicked }) {
+function NavItems({ mobile, clicked, opened }) {
      return (
           <Nav mobile={mobile}>
                <Ul mobile={mobile}>

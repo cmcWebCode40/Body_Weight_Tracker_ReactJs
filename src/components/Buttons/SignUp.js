@@ -13,6 +13,11 @@ const SignUpButton = styled.button`
     outline: none;
     cursor: pointer;
 
+    @media${props => (props.theme.mediaQueries.small)} {
+        padding: 7px 30px ;
+         font-size: 14px;
+   }
+
      &:hover {
           transform: translateY(-4px);
           outline: hidden;

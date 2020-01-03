@@ -1,7 +1,6 @@
 import *  as firebase from 'firebase/app';
-// import 'firebase/firestore';
 import 'firebase/auth';
-// import { resolve } from 'url';
+
 
 
 
@@ -16,7 +15,6 @@ const app = firebase.initializeApp({
      measurementId: "G-89PT0H1K2F",
 });
 
-// const fireBaseApp = firebase.initializeApp(config);
 
 export default app;
 
@@ -25,54 +23,3 @@ export default app;
 
 
 
-
-// class Firebase {
-//      constructor() {
-//           app.initializeApp(fireBaseConfig);
-//           this.auth = app.auth();
-//           this.db = app.firestore();
-//      }
-
-//      login(email, password) {
-//           return this.auth.signInWithEmailAndPassWord(email, password);
-//      }
-
-//      logout() {
-//           return this.auth.signOut();
-//      }
-
-//      async register(name, email, password) {
-//           await this.auth.createUserWithEmailAndPassword(email, password)
-//           return this.auth.currentUser.updateProfile({
-//                displayName: name,
-//           })
-//      }
-
-//      addQuote(code) {
-//           if (!this.auth.currentUser) {
-//                return alert('Not authorized');
-//           }
-
-//           return this.db.doc(`users_codedamn_video/${this.currentUser.uid}`).set({
-//                code
-//           })
-//      }
-
-//      isInitialized() {
-//           return new Promise(resolve => {
-//                this.auth.onAuthStateChanged(resolve);
-//           })
-//      }
-
-//      getCurrentUsername() {
-//           return this.auth.currentUser && this.auth.currentUser.displayName
-//      }
-
-//      async  getCurrentUserQuote() {
-//           const code = await this.db.doc(`users_codedamn_vidoe/${this.auth.currentUser.uid}`).get();
-//           return code.get('quote');
-//      }
-
-// }
-
-// export default new Firebase();

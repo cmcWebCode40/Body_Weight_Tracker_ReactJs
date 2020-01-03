@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import uuid from 'uuid';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -177,8 +177,7 @@ function Weights({ history }) {
                </Header>
                <Form onSubmit={handleSubmit}>
                     <input type="number" value={text} onChange={handleChange} placeholder="enter your weights..." required />
-                    <div>
-                    </div>
+
                     <ButtonDiv>
                          <button type="submit"> Add                   <FontAwesomeIcon
                               icon="plus-circle"

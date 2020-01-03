@@ -1,6 +1,6 @@
 import React, { useState, createContext, useEffect } from 'react';
 import app from '../firebase';
-import uuid from 'uuid';
+
 import Weights from '../containers/bodyweight/Weights';
 
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import bgImage from '../../img/Landing/newimagegymimage.svg';
 
 import SignUpButton from '../../components/Buttons/SignUp';
@@ -17,20 +16,23 @@ const Wrapper = styled.div`
      height: 100vh;
      width:100%;
 
-     @media${props => (props.theme.mediaQueries.medium)} {
-          overflow:hidden;
-          height: 100vh;
+     // @media${props => (props.theme.mediaQueries.medium)} {
+     //      overflow:hidden;
+     //      height: 100vh;
 
-     }
+     // }
 
-     @media${props => (props.theme.mediaQueries.iphone4)} {
-          height: 80vh;
-          font-size: 1rem;
+     // @media${props => (props.theme.mediaQueries.iphone4)} {
+     //      height: 80vh;
+     //      font-size: 1rem;
 
-     }
+     // }
 
      @media ${props => (props.theme.mediaQueries.small)} {
-          margin: 1rem 8rem 0 -3.5rem;  
+          height: 100vh;
+          margin: 0 5rem 0 -5rem;
+          width:100%;
+          font-size: .3rem;
      
      }
 
@@ -123,23 +125,12 @@ const Heading = styled.h1`
      @media${props => (props.theme.mediaQueries.small)} {
           font-size: 2.5rem;
 
-     }
+     } 
+
      @media${props => (props.theme.mediaQueries.smallest)} {
-          font-size: 1.5rem;
+          font-size: 1.9rem;
 
-     }
-
-     @media${props => (props.theme.mediaQueries.iphone4)} {
-          // margin: 5rem auto;
-          font-size: .3rem;
-     }
-     
-
-       
-     @media${props => (props.theme.mediaQueries.large)} {
-       font-size: 3rem;
-     }
-     
+     } 
 `
 const ImageWrapper = styled.div`
    height: 100%;

@@ -12,6 +12,13 @@ const LoginButton = styled.button`
     margin: 1.7rem 2rem 0 1.2rem ;
     outline: none;
     cursor: pointer;
+    transition: transform .2s;
+
+    @media${props => (props.theme.mediaQueries.small)} {
+         padding: 7px 30px ;
+          font-size: 14px;
+
+    }
 
      &:hover {
           transform: translateY(-4px);
@@ -25,6 +32,8 @@ const LoginButton = styled.button`
      &:active {
           transform: translateY(2px);
       }
+
+     
 `
 
 function LoginBtn() {

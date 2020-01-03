@@ -104,7 +104,7 @@ const SignUp = ({ history }) => {
         } catch (error) {
             alert(error);
         }
-    }, []);
+    });
 
     return (
         <Div>

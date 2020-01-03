@@ -67,7 +67,7 @@ const SideNav = () => {
                     </Wrapper>
                </FixedWrapper>
                <MenuBody opened={isOpened}>
-                    <NavItems clicked={() => SetIsOpened(false)} />
+                    <NavItems opened={isOpened} clicked={() => SetIsOpened(false)} />
                </MenuBody>
           </SideNavWrapper>
 

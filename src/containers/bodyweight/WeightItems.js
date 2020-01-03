@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { WeightContext } from '../../contextApi/WeightContext';
-import { format } from 'path';
+
 
 
 const Wrapper = styled.div`
@@ -19,6 +19,7 @@ const Content = styled.div`
 const WeightRecord = styled.div`
    display: flex;
    align-items:center;
+   padding .5rem 1rem;
    justify-content: space-between;
    
    p {
@@ -86,7 +87,7 @@ const WeightItems = ({ weighs, id }) => {
           <Wrapper>
                <Content>
                     <WeightRecord>
-                         <p><Span>You Weigh</Span>:{weighs}kg</p>
+                         <p><Span>You Weigh</Span>: {weighs} (kg)</p>
                          <p><Span>Date:</Span> {formatDate}</p>
                     </WeightRecord>
                     <ActionButtons>

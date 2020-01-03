@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react'
+import React, { useCallback, useContext, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import { withRouter, Redirect } from 'react-router-dom';
@@ -83,7 +83,7 @@ const ImageWrapper = styled.div`
 `
 
 const Login = ({ history }) => {
-
+     const [isError, setIsError] = useState("");
 
      const login = useCallback(async event => {
           event.preventDefault();
@@ -92,11 +92,16 @@ const Login = ({ history }) => {
                await app.auth().signInWithEmailAndPassword(email.value, password.value);
                history.push('/weights')
           } catch (error) {
-               alert(error)
+               setIsError(error.message)
+               // alert(error)
           }
      }, [history])
 
      const [currentUser] = useContext(WeightContext);
+
+     const alertMessage = () => {
+          return <p> {isError}</p>
+     }
 
      if (!currentUser) {
           return <Redirect to='/login' />
@@ -113,6 +118,7 @@ const Login = ({ history }) => {
                <FormWrapper>
                     <Form onSubmit={login} >
                          <div>
+                              {isError ? <h2>{alertMessage()}</h2> : <p></p>}
                               <Label htmlFor="name">
                                    <FontAwesomeIcon
                                         icon="envelope"

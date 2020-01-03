@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../../logo/Logo';
 import Containers from '../../../layout/elements/Containers';
 import NavItems from '../navitems/NavItems';

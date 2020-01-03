@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -17,10 +17,15 @@ const Content = styled.div`
 const Loader = () => {
      return (
           <Wrapper>
-               <FontAwesomeIcon
-                    icon="times-circle"
-                    size="4x"
-               />
+               <Content>
+                    <FontAwesomeIcon
+                         icon="times-circle"
+                         size="4x"
+                    />
+               </Content>
+
           </Wrapper>
      )
-}
+};
+
+export default Loader;

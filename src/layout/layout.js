@@ -6,10 +6,12 @@ import styled from 'styled-components';
 import SideNav from '../components/navigation/sideNav/SideNav';
 import Home from '../containers/home/Home.js';
 import Navbar from '../components/navigation/Navbar/Navbar';
+import Loader from '../containers/loader/Loader';
+import Weights from '../containers/bodyweight/Weights';
+
 // import PrivateRoute from '../../containers/privateroute';
 const SignUp = React.lazy(() => import('../containers/UserAcess/SignUp'));
 const Login = React.lazy(() => import('../containers/UserAcess/Login'));
-const Weights = React.lazy(() => import('../containers/bodyweight/Weights'));
 
 
 
@@ -20,9 +22,6 @@ const MainWrapper = styled.div`
      min-height :calc(100vh - 6rem);  
      background: var(--color-bodyColor);
      margin: 0  auto;
-
-     
-     
 `
 
 
@@ -33,7 +32,7 @@ const Layout = () => {
                     <MainWrapper>
                          <Navbar />
                          <SideNav />
-                         <Suspense fallback={<h1>loading.....</h1>}>
+                         <Suspense fallback={<Loader />}>
                               <Switch>
                                    <Route path='/' exact component={Home} />
                                    <Route path='/weights' exact component={Weights} />
