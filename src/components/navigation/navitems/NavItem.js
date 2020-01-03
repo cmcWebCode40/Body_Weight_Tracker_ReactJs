@@ -29,10 +29,10 @@ const NavLinkStyled = styled(NavLink) `
      }
 `
 
-function NavItems({ link, children, mobile, clicked }) {
+function NavItems({ link, children, mobile, clicked, title }) {
      return (
           <LinksItem>
-               <NavLinkStyled onClick={clicked} exact activeClassName='active' mobile={mobile} to={link}>{children}</NavLinkStyled>
+               <NavLinkStyled onClick={clicked} exact activeClassName='active' title={title} mobile={mobile} to={link}>{children}</NavLinkStyled>
           </LinksItem>
      )
 }

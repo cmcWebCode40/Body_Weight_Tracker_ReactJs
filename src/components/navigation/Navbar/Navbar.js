@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../../logo/Logo';
 import Containers from '../../../layout/elements/Containers';
 import NavItems from '../navitems/NavItems';
@@ -13,6 +14,7 @@ const FixedWrapper = styled.div`
      left : 0;
      width : 100%;
      height: 6rem;
+     z-index: 2;
 
      @media ${props => (props.theme.mediaQueries.smallest)} {
           display: none;

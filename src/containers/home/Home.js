@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import bgImage from '../../img/Landing/newimagegymimage.svg';
 
 import SignUpButton from '../../components/Buttons/SignUp';
 import LoginButton from '../../components/Buttons/LoginBtn';
@@ -9,16 +10,28 @@ import LoginButton from '../../components/Buttons/LoginBtn';
 const Wrapper = styled.div`
      display: flex;
      align-items: center;
-     background: var(--color-bodyColor);
+      background: var(--color-bodyColor);
      text-align: center;
      overflow: hidden;
-     margin: 5rem 0 0rem 0;
+     // margin: 5rem 0 -6rem 0;
      height: 100vh;
+     width:100%;
 
      @media${props => (props.theme.mediaQueries.medium)} {
           overflow:hidden;
           height: 100vh;
 
+     }
+
+     @media${props => (props.theme.mediaQueries.iphone4)} {
+          height: 80vh;
+          font-size: 1rem;
+
+     }
+
+     @media ${props => (props.theme.mediaQueries.small)} {
+          margin: 1rem 8rem 0 -3.5rem;  
+     
      }
 
 `
@@ -29,12 +42,15 @@ const Content = styled.div`
      align-items:center;
      justify-content: center;
      margin: -10rem 0 0 0 ;
+     background: url(${bgImage}) no-repeat;
+     background-position : center;
+     background-size: 100% 100%;
 
 
-
-     @media${props => (props.theme.mediaQueries.largest)} {
-          
+     @media${props => (props.theme.mediaQueries.iphone4)} {
+          margin: 15rem auto ;
      }
+     
      
      
 `
@@ -47,7 +63,7 @@ const BgImage = styled.svg`
      justify-content:center;
 
      
-     @media${props => (props.theme.mediaQueries.small)} {
+     @media${props => (props.theme.mediaQueries.smallest)} {
           font-size: 2.5rem;
           margin: .5rem auto;
           height: 300px;
@@ -60,25 +76,32 @@ const BgImage = styled.svg`
           width:300px;
      }
      
-     @media${props => (props.theme.mediaQueries.large)} {
+     @media${props => (props.theme.mediaQueries.medium)} {
           margin: 10rem -3rem 0 0 ;
           height: 300px;
           width:300px;
+     }
+
+     @media${props => (props.theme.mediaQueries.iphone4)} {
+          margin: 2rem auto ;
+          height: 180px;
+          width:180px;
      }
      
 
 `
 
 const ContentText = styled.div`
+     align-items:center;
      height:100%;
-     padding: 0 0 0 6rem;
-     margin: 7rem  0 0 0;
+     padding: 0 0 0 1rem;
+     margin: 7rem  4rem 0 0;
      overflow:hidden;
 
 
      @media${props => (props.theme.mediaQueries.small)} {
           font-size: 2rem;
-          margin: 0 2rem 0 0;
+          margin: 0 rem 0 0;
           padding:  0 .3rem  0 .6rem;
           
      }
@@ -101,10 +124,16 @@ const Heading = styled.h1`
           font-size: 2.5rem;
 
      }
-     @media${props => (props.theme.mediaQueries.small)} {
-          font-size: 2.5rem;
+     @media${props => (props.theme.mediaQueries.smallest)} {
+          font-size: 1.5rem;
 
      }
+
+     @media${props => (props.theme.mediaQueries.iphone4)} {
+          // margin: 5rem auto;
+          font-size: .3rem;
+     }
+     
 
        
      @media${props => (props.theme.mediaQueries.large)} {
@@ -122,6 +151,12 @@ const Div = styled.div`
      display:flex;
      align-items:center;
      justify-content: center;
+
+     @media${props => (props.theme.mediaQueries.iphone4)} {
+         font-size: 1.5rem;
+     }
+     
+     
 `
 // const ClipWrapper = styled.div`
 //      position: absolute;

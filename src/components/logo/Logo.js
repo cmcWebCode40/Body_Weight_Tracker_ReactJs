@@ -12,8 +12,8 @@ const LogoWrapper = styled.div`
 
 `
 const WebLogo = styled.img`
-     height: 40px;
-     width:40px;
+     height: 60px;
+     width:60px;
      border-radius: 50%;
      display: flex;
      align-items: center;

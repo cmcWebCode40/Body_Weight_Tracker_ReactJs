@@ -1,4 +1,5 @@
 import React, { useCallback, useContext } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import { withRouter, Redirect } from 'react-router-dom';
 import { WeightContext } from '../../contextApi/WeightContext';
@@ -59,13 +60,14 @@ const Form = styled.form`
           font-weight: 600;
           color:var(--color-text);
      }
-
-   
 `
 
 const Div = styled.div`
      background: var(--color-bodyColor);
      height:100vh;
+     weight:100%;
+     // margin: 2rem 0 -5rem 0;
+     overflow: hidden;
 `
 const Image = styled.img`
      height: 130px;
@@ -83,46 +85,58 @@ const ImageWrapper = styled.div`
 const Login = ({ history }) => {
 
 
-    const login = useCallback(async event => {
-        event.preventDefault();
-        const { email, password } = event.target.elements
-        try {
-            await app.auth().signInWithEmailAndPassword(email.value, password.value);
-            history.push('/weights')
-        } catch (error) {
-            alert(error)
-        }
-    }, [history])
+     const login = useCallback(async event => {
+          event.preventDefault();
+          const { email, password } = event.target.elements
+          try {
+               await app.auth().signInWithEmailAndPassword(email.value, password.value);
+               history.push('/weights')
+          } catch (error) {
+               alert(error)
+          }
+     }, [history])
 
-    const [currentUser] = useContext(WeightContext);
+     const [currentUser] = useContext(WeightContext);
 
-    if (!currentUser) {
-        return <Redirect to='/login' />
-    }
+     if (!currentUser) {
+          return <Redirect to='/login' />
+     }
 
-    return (
-        <Div>
-            <Header>
-                <h1>Welcome Back ! Login Here </h1>
-            </Header>
-            <ImageWrapper>
-                <Image src={fitman} alt="joggling" />
-            </ImageWrapper>
-            <FormWrapper>
-                <Form onSubmit={login} >
-                    <div>
-                        <Label htmlFor="name">Email</Label>
-                        <input type="email" placeholder='Enter your email address..' name="email" />
-                    </div>
-                    <div>
-                        <Label htmlFor="name">Password</Label>
-                        <input type="password" placeholder='Enter password' name="password" />
-                    </div>
-                    <input type="submit" value="Login" />
-                </Form>
-            </FormWrapper>
-        </Div>
-    );
+     return (
+          <Div>
+               <Header>
+                    <h1>Welcome Back ! Login Here </h1>
+               </Header>
+               <ImageWrapper>
+                    <Image src={fitman} alt="joggling" />
+               </ImageWrapper>
+               <FormWrapper>
+                    <Form onSubmit={login} >
+                         <div>
+                              <Label htmlFor="name">
+                                   <FontAwesomeIcon
+                                        icon="envelope"
+                                        size="1x"
+                                   />
+                                   Email
+                              </Label>
+                              <input type="email" placeholder='Enter your email address..' name="email" />
+                         </div>
+                         <div>
+                              <Label htmlFor="name">
+                                   <FontAwesomeIcon
+                                        icon="key"
+                                        size="1x"
+                                   />
+                                   Password
+                              </Label>
+                              <input type="password" placeholder='Enter password' name="password" />
+                         </div>
+                         <input type="submit" value="Login" />
+                    </Form>
+               </FormWrapper>
+          </Div>
+     );
 
 
 }

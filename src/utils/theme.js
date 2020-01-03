@@ -12,6 +12,7 @@ const theme = {
 
      mediaQueries: {
           smallest: `(max-width :25em)`,
+          iphone4: `(max-width :320px)`,
           small: `(max-width :37.5em)`,
           medium: `(max-width :768px)`,
           large: `(max-width :80em)`,

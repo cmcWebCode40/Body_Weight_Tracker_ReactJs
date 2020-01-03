@@ -8,6 +8,7 @@ import app from '../../firebase';
 const Header = styled.div`
      text-align:center;
      margin: 1rem 0 0 0 ; 
+     padding: 27px 0 0 0;
 
      h1 {
           color: var(--color-white);
@@ -66,12 +67,17 @@ const Form = styled.form`
 const Div = styled.div`
      background: var(--color-bodyColor);
      height:100vh;
+     width:100%;
+`
+const Section = styled.section`
+   margin: 3rem  0 0 0 ;
 `
 
 const Image = styled.img`
      height: 130px;
      width: 130px;
      border-radius: 50%;
+
 `
 
 const ImageWrapper = styled.div`
@@ -79,53 +85,58 @@ const ImageWrapper = styled.div`
     align-items: center;
     justify-content:center;
     margin: 3rem  0 6rem 0;
+    padding: 5px  0 15px  0;
 `
 
 
 const SignUp = ({ history }) => {
-     const [name, setName] = useState('')
-     // const [email, setEmail] = useState('')
-     // const [password, setPassword] = useState('')
-     // const [code, setCode] = useState('')
+    const [name, setName] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [password, setPassword] = useState('')
+    // const [code, setCode] = useState('')
 
-     const handleSignUp = useCallback(async event => {
-          event.preventDefault();
-          const { email, password } = event.target.elements
-          try {
-               await app.auth().createUserWithEmailAndPassword(email.value, password.value);
-               history.push('/weights')
-          } catch (error) {
-               alert(error);
-          }
-     }, []);
+    const handleSignUp = useCallback(async event => {
+        event.preventDefault();
+        const { email, password } = event.target.elements
+        try {
+            await app.auth().createUserWithEmailAndPassword(email.value, password.value);
+            history.push('/weights')
+        } catch (error) {
+            alert(error);
+        }
+    }, []);
 
-     return (
-          <Div>
-               <Header>
+    return (
+        <Div>
+            <Section>
+                <Header>
                     <h1>Welcome ! SignUp Here </h1>
-               </Header>
-               <ImageWrapper>
+                </Header>
+                <ImageWrapper>
                     <Image src={fitman} alt="joggling" />
-               </ImageWrapper>
-               <FormWrapper>
+                </ImageWrapper>
+                <FormWrapper>
                     <Form onSubmit={handleSignUp}>
-                         <div>
-                              <Label htmlFor="name">Name</Label>
-                              <input value={name} type="text" placeholder='Enter your Name ...' onChange={(e) => setName(e.target.value)} />
-                         </div>
-                         <div>
-                              <Label htmlFor="name">Email</Label>
-                              <input type="email" name="email" placeholder='Enter your email address..' />
-                         </div>
-                         <div>
-                              <Label htmlFor="name">Password</Label>
-                              <input name="password" type="password" placeholder='Enter password' />
-                         </div>
-                         <input type="submit" value="Sign Up" />
+                        <div>
+                            <Label htmlFor="name">Name</Label>
+                            <input value={name} type="text" placeholder='Enter your Name ...' onChange={(e) => setName(e.target.value)} />
+                        </div>
+                        <div>
+                            <Label htmlFor="name">Email</Label>
+                            <input type="email" name="email" placeholder='Enter your email address..' />
+                        </div>
+                        <div>
+                            <Label htmlFor="name">Password</Label>
+                            <input name="password" type="password" placeholder='Enter password' />
+                        </div>
+                        <input type="submit" value="Sign Up" />
                     </Form>
-               </FormWrapper>
-          </Div>
-     );
+                </FormWrapper>
+            </Section>
+        </Div>
+
+
+    );
 }
 
 export default withRouter(SignUp);

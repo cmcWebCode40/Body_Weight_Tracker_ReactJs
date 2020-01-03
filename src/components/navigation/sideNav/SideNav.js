@@ -24,9 +24,9 @@ const FixedWrapper = styled.div`
 
 const SideNavWrapper = styled.div`
  
-     @media ${props => props.theme.mediaQueries.largest} {
-            visibility : hidden;
-     }
+     // @media ${props => props.theme.mediaQueries.largest} {
+     //        visibility : hidden;
+     // }
 `
 const Wrapper = styled.div`
      display: flex;

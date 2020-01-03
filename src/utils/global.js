@@ -44,4 +44,22 @@ export default createGlobalStyle`
           font-family: inherit;
      }
 
+     ::-webkit-scrollbar {
+          width:6px;
+          border-radius: 15px;
+     }
+
+     ::-webkit-scrollbar-track {
+          background-color:${ props => props.theme.colors.bodyDark} ;
+     }
+
+     ::-webkit-scrollbar-thumb {
+          background-color:${ props => props.theme.colors.primary};
+     }
+
+     ::-webkit-scrollbar-thumb:hover {
+          background-color:${ props => props.theme.colors.primary};
+     }
+
+
 `
