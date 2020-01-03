@@ -9,6 +9,7 @@ import WeightItems from './WeightItems';
 
 const Wrapper = styled.div`
      margin: 5rem auto;
+     padding: 3rem  0 0 0;
      text-align:center;
      width:100%;
      height: 100vh;

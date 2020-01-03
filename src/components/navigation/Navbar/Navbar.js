@@ -12,7 +12,7 @@ const FixedWrapper = styled.div`
      top : 0;
      left : 0;
      width : 100%;
-     height: 6rem;
+     height: 8rem;
      z-index: 2;
 
      @media ${props => (props.theme.mediaQueries.smallest)} {

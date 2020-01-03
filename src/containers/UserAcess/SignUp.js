@@ -14,6 +14,7 @@ const Header = styled.div`
           color: var(--color-white);
           margin: 0rem 0 0 0 ;
           font-size: 22px;
+          padding: 40px 0 0 0;
      }
 
 `
@@ -59,6 +60,7 @@ const Form = styled.form`
           background: var(--color-primary);
           font-weight: 600;
           color:var(--color-text);
+          cursor:pointer;
      }
 
    
@@ -84,8 +86,7 @@ const ImageWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content:center;
-    margin: 3rem  0 6rem 0;
-    padding: 5px  0 15px  0;
+    margin: .5rem  0 6rem 0;
 `
 
 

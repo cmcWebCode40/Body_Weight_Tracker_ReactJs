@@ -35,11 +35,13 @@ const ActionButtons = styled.div`
      display:flex;
      align-items:center;
      justify-content: space-around;
+   
 
      button {
           border: none;
           background : none;
           padding: 5px;
+          cursor : pointer;
      }
 
      p {

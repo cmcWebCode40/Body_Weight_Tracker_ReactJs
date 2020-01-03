@@ -8,12 +8,14 @@ import app from '../../firebase';
 
 const Header = styled.div`
      text-align:center;
-     margin: 5rem 0 0 0 ; 
+     // margin: 0rem 0 -7rem 0 ; 
+     padding: 0rem  0 -7rem 0;
 
      h1 {
           color: var(--color-white);
           margin: 4rem 0 0 0 ;
           font-size: 22px;
+          padding: 70px 0 0 0 ;
      }
 
 `
@@ -59,6 +61,7 @@ const Form = styled.form`
           background: var(--color-primary);
           font-weight: 600;
           color:var(--color-text);
+          cursor:pointer;
      }
 `
 
@@ -73,13 +76,25 @@ const Image = styled.img`
      height: 130px;
      width: 130px;
      border-radius: 50%;
+     margin : 0 0 -2rem 0;
 `
 
 const ImageWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content:center;
-    margin: 3rem  0 6rem 0;
+    margin: .5rem  0 -5rem 0;
+`
+
+const Alert = styled.h2`
+     background: #ffdfdc;
+     color:#ff0000;
+     word-break:break;
+     border: 1px solid #ff0000;
+     padding: 10px;
+     margin:  610em auto;
+     border-radius: 10px;
+     width: 30%;
 `
 
 const Login = ({ history }) => {
@@ -101,7 +116,12 @@ const Login = ({ history }) => {
 
      const alertMessage = () => {
           return <p> {isError}</p>
+
      }
+
+     // const message = setTimeout(() => {
+     //      alertMessage();
+     // }, 1000);
 
      if (!currentUser) {
           return <Redirect to='/login' />
@@ -115,10 +135,10 @@ const Login = ({ history }) => {
                <ImageWrapper>
                     <Image src={fitman} alt="joggling" />
                </ImageWrapper>
+               {isError ? <Alert>{alertMessage()}</Alert> : <p></p>}
                <FormWrapper>
                     <Form onSubmit={login} >
                          <div>
-                              {isError ? <h2>{alertMessage()}</h2> : <p></p>}
                               <Label htmlFor="name">
                                    <FontAwesomeIcon
                                         icon="envelope"
