@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react'
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 import fitman from '../../img/logo/fitman.svg'
-import app from '../../firebase';
+// import app from '../../firebase';
 // import firebase from '../../firebase';
 
 const Header = styled.div`
@@ -96,16 +96,17 @@ const SignUp = ({ history }) => {
     // const [password, setPassword] = useState('')
     // const [code, setCode] = useState('')
 
-    const handleSignUp = useCallback(async event => {
-        event.preventDefault();
-        const { email, password } = event.target.elements
-        try {
-            await app.auth().createUserWithEmailAndPassword(email.value, password.value);
-            history.push('/weights')
-        } catch (error) {
-            alert(error);
-        }
-    });
+    const handleSignUp = useCallback();
+    // async event => {
+    //     event.preventDefault();
+    //     const { email, password } = event.target.elements
+    //     try {
+    //         await app.auth().createUserWithEmailAndPassword(email.value, password.value);
+    //         history.push('/weights')
+    //     } catch (error) {
+    //         alert(error);
+    //     }
+    // }
 
     return (
         <Div>

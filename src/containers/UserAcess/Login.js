@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { withRouter, Redirect } from 'react-router-dom';
 import { WeightContext } from '../../contextApi/WeightContext';
 import fitman from '../../img/logo/fitman.svg'
-import app from '../../firebase';
+// import app from '../../firebase';
 
 const Header = styled.div`
      text-align:center;
@@ -100,19 +100,20 @@ const ImageWrapper = styled.div`
 const Login = ({ history }) => {
      const [isError, setIsError] = useState("");
 
-     const login = useCallback(async event => {
-          event.preventDefault();
-          const { email, password } = event.target.elements
-          try {
-               await app.auth().signInWithEmailAndPassword(email.value, password.value);
-               history.push('/weights')
-          } catch (error) {
-               setIsError(error.message)
-               // alert(error)
-          }
-     }, [history])
+     const login = useCallback()
+     // async event => {
+     //      event.preventDefault();
+     //      const { email, password } = event.target.elements
+     //      try {
+     //           await app.auth().signInWithEmailAndPassword(email.value, password.value);
+     //           history.push('/weights')
+     //      } catch (error) {
+     //           setIsError(error.message)
+     //           // alert(error)
+     //      }
+     // }, [history]
 
-     const [currentUser] = useContext(WeightContext);
+     // const [currentUser] = useContext(WeightContext);
 
      const alertMessage = () => {
           return <p> {isError}</p>
@@ -123,9 +124,9 @@ const Login = ({ history }) => {
      //      alertMessage();
      // }, 1000);
 
-     if (!currentUser) {
-          return <Redirect to='/login' />
-     }
+     // if (!currentUser) {
+     //      return <Redirect to='/login' />
+     // }
 
      return (
           <Div>
