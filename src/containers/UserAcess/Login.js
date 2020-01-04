@@ -86,16 +86,16 @@ const ImageWrapper = styled.div`
     margin: .5rem  0 -5rem 0;
 `
 
-const Alert = styled.h2`
-     background: #ffdfdc;
-     color:#ff0000;
-     word-break:break;
-     border: 1px solid #ff0000;
-     padding: 10px;
-     margin:  610em auto;
-     border-radius: 10px;
-     width: 30%;
-`
+// const Alert = styled.h2`
+//      background: #ffdfdc;
+//      color:#ff0000;
+//      word-break:break;
+//      border: 1px solid #ff0000;
+//      padding: 10px;
+//      margin:  6em auto;
+//      border-radius: 10px;
+//      width: 30%;
+// `
 
 const Login = ({ history }) => {
      const [isError, setIsError] = useState("");
@@ -135,8 +135,9 @@ const Login = ({ history }) => {
                <ImageWrapper>
                     <Image src={fitman} alt="joggling" />
                </ImageWrapper>
-               {isError ? <Alert>{alertMessage()}</Alert> : <p></p>}
+
                <FormWrapper>
+                    {isError ? <h2>{alertMessage()}</h2> : <p></p>}
                     <Form onSubmit={login} >
                          <div>
                               <Label htmlFor="name">

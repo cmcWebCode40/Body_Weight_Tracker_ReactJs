@@ -14,8 +14,8 @@ const SignUpButton = styled.button`
     cursor: pointer;
 
     @media${props => (props.theme.mediaQueries.small)} {
-        padding: 7px 30px ;
-         font-size: 14px;
+        padding: 8px 35px ;
+        font-size: 16px;
    }
 
      &:hover {

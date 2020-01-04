@@ -8,6 +8,7 @@
           "@fortawesome/react-fontawesome": "^0.1.8",
           "animate.css": "^3.7.2",
           "cra-template": "1.0.0",
+          "dotenv": "^8.2.0",
           "firebase": "^7.6.1",
           "node-sass": "^4.13.0",
           "react": "^16.12.0",

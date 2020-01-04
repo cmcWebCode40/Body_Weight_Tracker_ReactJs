@@ -15,8 +15,8 @@ const LoginButton = styled.button`
     transition: transform .2s;
 
     @media${props => (props.theme.mediaQueries.small)} {
-         padding: 7px 30px ;
-          font-size: 14px;
+         padding: 8px 35px ;
+          font-size: 16px;
 
     }
 

@@ -5,9 +5,6 @@ import styled from 'styled-components';
 
 
 import Navbar from '../components/navigation/Navbar/Navbar';
-// const SignUp = React.lazy(() => import('../containers/UserAcess/SignUp'));
-// const Login = React.lazy(() => import('../containers/UserAcess/Login'));
-// const Weights = React.lazy(() => import('../containers/bodyweight/Weights'));
 import SideNav from '../components/navigation/sideNav/SideNav';
 import Home from '../containers/home/Home.js';
 import SignUp from '../containers/UserAcess/SignUp';
@@ -15,13 +12,12 @@ import Login from '../containers/UserAcess/Login';
 import Weights from '../containers/bodyweight/Weights';
 
 
-
-
 const MainWrapper = styled.div`
      width: 100%;
      min-height :calc(100vh - 6rem);  
-     background: var(--color-bodyColor);
-     margin: 0  auto;
+     display: flex;
+     align-items:center;
+     background: var(--color-bodyColor)
 `
 
 
@@ -29,9 +25,13 @@ const Layout = () => {
      return (
           <Router>
                <div>
+                    <Navbar />
+                    <SideNav />
+               </div>
+               <div>
+                    <Navbar />
+                    <SideNav />
                     <MainWrapper>
-                         <Navbar />
-                         <SideNav />
                          <Switch>
                               <Route path='/' exact component={Home} />
                               <Route path='/weights' exact component={Weights} />

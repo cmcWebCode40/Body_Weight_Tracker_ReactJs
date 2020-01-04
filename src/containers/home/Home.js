@@ -121,6 +121,7 @@ const Heading = styled.h1`
      color: var(--color-white);
      text-align: center;
      margin: 0.5rem auto;
+     text-decoration: uppercase;
 
      @media${props => (props.theme.mediaQueries.small)} {
           font-size: 2.5rem;
@@ -366,7 +367,7 @@ const Home = () => {
                          </BgImage>
                     </ImageWrapper>
                     <ContentText>
-                         <Heading>That Fat Must Go Down !! <br />Keep Track Your Weight</Heading>
+                         <Heading>THAT FAT MUST GO DOWN ! <br />KEEP TRACK YOUR WEIGHT</Heading>
                          <Div>
                               <SignUpButton />
                               <LoginButton />
