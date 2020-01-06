@@ -1,4 +1,8 @@
 import React, { useContext, useState } from 'react';
+import { store } from 'react-notifications-component';
+import ReactNotifications from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+import 'animate.css';
 import uuid from 'uuid';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,51 +12,51 @@ import { WeightContext } from '../../contextApi/WeightContext';
 import WeightItems from './WeightItems';
 
 const Wrapper = styled.div`
-     margin: 5rem auto;
-     padding: 3rem  0 0 0;
-     text-align:center;
-     width:100%;
-     height: 100vh;
-     background: var(--color-white);
+    margin: 5rem  0 0 0 ;
+    padding: 3rem  0 0 0;
+    text-align:center;
+    width:100%;
+    height: 100vh;
+    background: var(--color-white);
 
-     @media ${props => (props.theme.mediaQueries.small)} {
-          width: 100%;
-          height: 100vh;
-     }
+    @media ${props => (props.theme.mediaQueries.small)} {
+        width: 100%;
+        height: 100vh;
+    }
 `
 
 const Header = styled.div`
-     padding:2rem;
+    padding:2rem;
 
-     h1 {
-          font-size: 3.3rem;
-          color:var(--color-bodyColor);
-          margin: .4rem  0 .8rem 0;
-     }
+    h1 {
+    font-size: 3.3rem;
+    color:var(--color-bodyColor);
+    margin: .4rem  0 .8rem 0;
+    }
 
-     p {
-          font-style: italic;
-          font-size:1.5em;
-          color: var(--color-text);
-     }
+    p {
+    font-style: italic;
+    font-size:1.5em;
+    color: var(--color-text);
+    }
 
 `
 
 const Form = styled.form`
-     margin: 2rem auto;
-     width: 60%
+    margin: 2rem auto;
+    width: 60%
 
-     
-     @media ${props => (props.theme.mediaQueries.small)} {
-          width: 100%;
-     }
+    
+    @media ${props => (props.theme.mediaQueries.small)} {
+        width: 100%;
+    }
 
-     input[type='number'] {
-          padding:.5rem;
-          border-radius:.5em;
-          width:50%; 
-          border: var(--color-bodyColor) 1px solid;
-     }
+    input[type='number'] {
+        padding:.5rem;
+        border-radius:.5em;
+        width:50%; 
+        border: var(--color-bodyColor) 1px solid;
+    }
 
 `
 
@@ -106,8 +110,9 @@ const ButtonDiv = styled.div`
      }
 
 `
+
 const LogoutBtn = styled.button`
-     background: var(--color-primary);
+     background: var(--color-bodyColor);
      padding: 7px 20px ;
      font-size: 13px;
      color: var(--color-white);
@@ -131,6 +136,7 @@ const LogoutBtn = styled.button`
 `
 
 
+
 function Weights({ history }) {
      const [weights, setWeights] = useContext(WeightContext);
      // const [editItem, setEditItem] = useContext(WeightContext);
@@ -141,10 +147,23 @@ function Weights({ history }) {
           setText(e.target.value)
      }
 
+     const notificationsButton = (message, type) => {
+          store.addNotification({
+               title: 'ALert',
+               message: `${message}`,
+               type: `${type}`,
+               container: 'top-center',
+               animationIn: ["animated", "fadeIn"],
+               animationOut: ["animated", "fadeOut"],
+               dismiss: {
+                    duration: 3000
+               }
+          })
+     }
+
      const addWeights = (text) => {
           setWeights([...weights, { weighs: text, id: uuid() }])
           console.log(weights);
-
      }
 
      // useEffect(() => {
@@ -155,8 +174,14 @@ function Weights({ history }) {
      const handleSubmit = (e) => {
           e.preventDefault();
           addWeights(text);
+          notificationsButton("New Weight Added", "success");
           setText('');
           console.log(weights);
+     }
+
+     const clearAll = () => {
+          setWeights([]);
+          notificationsButton("Deleted All", "success");
      }
 
 
@@ -175,16 +200,18 @@ function Weights({ history }) {
                <Header>
                     <h1>Welcome !</h1>
                     <p>Start Tracking Your Weight Daily........</p>
+
                </Header>
+               <ReactNotifications />
                <Form onSubmit={handleSubmit}>
                     <input type="number" value={text} onChange={handleChange} placeholder="enter your weights..." required />
 
                     <ButtonDiv>
-                         <button type="submit"> Add                   <FontAwesomeIcon
+                         <button type="submit"> Add <FontAwesomeIcon
                               icon="plus-circle"
                               size="1x"
                          /></button>
-                         <button onClick={() => (setWeights([]))}>clear All
+                         <button onClick={clearAll}>clear All
                                <FontAwesomeIcon
                                    icon="times-circle"
                                    size="1x"
