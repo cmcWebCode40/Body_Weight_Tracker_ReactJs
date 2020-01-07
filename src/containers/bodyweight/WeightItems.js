@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ReactNotifications, { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 import { WeightContext } from '../../contextApi/WeightContext';
@@ -62,7 +61,7 @@ const ActionButtons = styled.div`
 `
 
 const WeightItems = ({ weighs, id }) => {
-     const [weights, setWeights] = useContext(WeightContext)
+     const [weights, setWeights, notificationsButton] = useContext(WeightContext)
      // const [editItem, setEditItem] = useContext(WeightContext)
      const date = new Date();
      const formatDate = `${date.getDate()} - ${date.getMonth()} - ${date.getFullYear()} `
@@ -72,20 +71,6 @@ const WeightItems = ({ weighs, id }) => {
           return setWeights(filterWeights)
      }
 
-
-     const notificationsButton = (message, type) => {
-          store.addNotification({
-               title: 'ALert',
-               message: `${message}`,
-               type: `${type}`,
-               container: 'top-center',
-               animationIn: ["animated", "fadeIn"],
-               animationOut: ["animated", "fadeOut"],
-               dismiss: {
-                    duration: 1000
-               }
-          })
-     }
 
      const handleDelete = () => {
           deleteWeights(id);

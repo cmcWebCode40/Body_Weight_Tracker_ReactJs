@@ -1,21 +1,27 @@
-import React, { useCallback, useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
+import { store } from 'react-notifications-component';
 import { withRouter, Redirect } from 'react-router-dom';
 import { WeightContext } from '../../contextApi/WeightContext';
-import fitman from '../../img/logo/fitman.svg'
-// import app from '../../firebase';
+import fitman from '../../img/logo/undraw_personal_trainer_ote3.svg'
+import app from '../../firebase';
 
+const ServerPage = styled.div`
+     background : var(--color-white);
+     height: 100vh;
+     z-index: 2;
+`
 const Header = styled.div`
      text-align:center;
-     // margin: 0rem 0 -7rem 0 ; 
-     padding: 0rem  0 -7rem 0;
+     margin: 1rem 0 0 0 ; 
+     padding: 27px 0 0 0;
 
      h1 {
           color: var(--color-white);
-          margin: 4rem 0 0 0 ;
+          margin: 0rem 0 0 0 ;
           font-size: 22px;
-          padding: 70px 0 0 0 ;
+          padding: 40px 0 0 0;
      }
 
 `
@@ -28,7 +34,7 @@ const Label = styled.label`
 const FormWrapper = styled.div`
      position: absolute;
      transform: translate(-60%,-80%);
-     top:50%;
+     top:45%;
      left:50%;
      height: 35%;
      width:auto;
@@ -63,86 +69,92 @@ const Form = styled.form`
           color:var(--color-text);
           cursor:pointer;
      }
+
+   
 `
 
 const Div = styled.div`
      background: var(--color-bodyColor);
      height:100vh;
-     weight:100%;
-     // margin: 2rem 0 -5rem 0;
-     overflow: hidden;
+     width:100%;
+
 `
 const Image = styled.img`
      height: 130px;
      width: 130px;
      border-radius: 50%;
-     margin : 0 0 -2rem 0;
+
 `
 
 const ImageWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content:center;
-    margin: .5rem  0 -5rem 0;
+    margin: .5rem  0 6rem 0;
 `
 
-// const Alert = styled.h2`
-//      background: #ffdfdc;
-//      color:#ff0000;
-//      word-break:break;
-//      border: 1px solid #ff0000;
-//      padding: 10px;
-//      margin:  6em auto;
-//      border-radius: 10px;
-//      width: 30%;
-// `
 
 const Login = ({ history }) => {
      const [isError, setIsError] = useState("");
+     const [isLoading, setIsLoading] = useState(false)
+     // const [notificationsButton] = useContext(WeightContext)
 
-     const login = useCallback()
-     // async event => {
-     //      event.preventDefault();
-     //      const { email, password } = event.target.elements
-     //      try {
-     //           await app.auth().signInWithEmailAndPassword(email.value, password.value);
-     //           history.push('/weights')
-     //      } catch (error) {
-     //           setIsError(error.message)
-     //           // alert(error)
-     //      }
-     // }, [history]
-
-     // const [currentUser] = useContext(WeightContext);
-
-     const alertMessage = () => {
-          return <p> {isError}</p>
-
+     const login = async event => {
+          event.preventDefault();
+          const { email, password } = event.target.elements
+          try {
+               setIsLoading(true)
+               await app.auth().signInWithEmailAndPassword(email.value, password.value);
+               history.push('/weights')
+          } catch (error) {
+               setIsError(error.message)
+               setIsLoading(false)
+          }
      }
 
-     // const message = setTimeout(() => {
-     //      alertMessage();
-     // }, 1000);
 
-     // if (!currentUser) {
-     //      return <Redirect to='/login' />
-     // }
+
+     const [currentUser] = useContext(WeightContext);
+
+
+     const notificationsButtons = (message, type) => {
+          store.addNotification({
+               title: 'ALert',
+               message: `${message}`,
+               type: `${type}`,
+               container: 'top-center',
+               animationIn: ["animated", "fadeIn"],
+               animationOut: ["animated", "fadeOut"],
+               dismiss: {
+                    duration: 3000
+               }
+          })
+     }
+
+     if (!currentUser) {
+          return <Redirect to='/login' />
+     }
 
      return (
           <Div>
+               {isLoading && <ServerPage><FontAwesomeIcon style={{ 'margin': ' 4rem auto' }}
+                    icon="spinner"
+                    size="3x"
+                    spin
+               /></ServerPage>}
                <Header>
                     <h1>Welcome Back ! Login Here </h1>
                </Header>
                <ImageWrapper>
                     <Image src={fitman} alt="joggling" />
                </ImageWrapper>
-
                <FormWrapper>
-                    {isError ? <h2>{alertMessage()}</h2> : <p></p>}
+                    {isError && <h2>{notificationsButtons(isError, 'danger')}</h2>}
                     <Form onSubmit={login} >
                          <div>
                               <Label htmlFor="name">
-                                   <FontAwesomeIcon
+
+                                   <FontAwesomeIcon style={{ 'marginRight': '1rem' }}
                                         icon="envelope"
                                         size="1x"
                                    />
@@ -152,7 +164,7 @@ const Login = ({ history }) => {
                          </div>
                          <div>
                               <Label htmlFor="name">
-                                   <FontAwesomeIcon
+                                   <FontAwesomeIcon style={{ 'marginRight': '1rem' }}
                                         icon="key"
                                         size="1x"
                                    />

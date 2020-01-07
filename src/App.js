@@ -1,12 +1,11 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope, faKey, faHome, faPlusCircle, faTrash, faEdit, faUser, faAddressCard, faTimesCircle, faWeightHanging, faWeight, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faKey, faHome, faPlusCircle, faTrash, faEdit, faUser, faAddressCard, faTimesCircle, faServer, faSpinner, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import WeightProvider from './contextApi/WeightContext'
-// import ReactNotifications from 'react-notifications-component';
 import Layout from './layout/layout';
 
 
-library.add(faEnvelope, faKey, faHome, faPlusCircle, faTrash, faEdit, faUser, faAddressCard, faTimesCircle, faWeightHanging, faWeight, faInfoCircle);
+library.add(faEnvelope, faKey, faHome, faPlusCircle, faTrash, faEdit, faUser, faAddressCard, faTimesCircle, faServer, faSpinner, faInfoCircle);
 
 
 

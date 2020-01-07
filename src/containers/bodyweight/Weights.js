@@ -1,6 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { store } from 'react-notifications-component';
-import ReactNotifications from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 import uuid from 'uuid';
@@ -9,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import app from '../../firebase';
 import { withRouter } from 'react-router-dom';
 import { WeightContext } from '../../contextApi/WeightContext';
+
 import WeightItems from './WeightItems';
 
 const Wrapper = styled.div`
@@ -138,27 +137,13 @@ const LogoutBtn = styled.button`
 
 
 function Weights({ history }) {
-     const [weights, setWeights] = useContext(WeightContext);
+     const [weights, setWeights, notificationsButton] = useContext(WeightContext);
      // const [editItem, setEditItem] = useContext(WeightContext);
      const [text, setText] = useState()
 
      const handleChange = e => {
           e.preventDefault()
           setText(e.target.value)
-     }
-
-     const notificationsButton = (message, type) => {
-          store.addNotification({
-               title: 'ALert',
-               message: `${message}`,
-               type: `${type}`,
-               container: 'top-center',
-               animationIn: ["animated", "fadeIn"],
-               animationOut: ["animated", "fadeOut"],
-               dismiss: {
-                    duration: 3000
-               }
-          })
      }
 
      const addWeights = (text) => {
@@ -202,7 +187,6 @@ function Weights({ history }) {
                     <p>Start Tracking Your Weight Daily........</p>
 
                </Header>
-               <ReactNotifications />
                <Form onSubmit={handleSubmit}>
                     <input type="number" value={text} onChange={handleChange} placeholder="enter your weights..." required />
 

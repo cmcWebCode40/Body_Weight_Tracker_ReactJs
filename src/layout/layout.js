@@ -1,7 +1,8 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom';
+import ReactNotifications from 'react-notifications-component';
 import styled from 'styled-components';
+
 
 
 import Navbar from '../components/navigation/Navbar/Navbar';
@@ -32,6 +33,7 @@ const Layout = () => {
                     <Navbar />
                     <SideNav />
                     <MainWrapper>
+                         <ReactNotifications />
                          <Switch>
                               <Route path='/' exact component={Home} />
                               <Route path='/weights' exact component={Weights} />

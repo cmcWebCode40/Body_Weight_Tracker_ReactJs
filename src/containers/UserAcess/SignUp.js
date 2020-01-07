@@ -1,9 +1,11 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
+import { store } from 'react-notifications-component';
 import { withRouter } from 'react-router-dom';
-import fitman from '../../img/logo/fitman.svg'
-// import app from '../../firebase';
-// import firebase from '../../firebase';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import fitman from '../../img/logo/undraw_personal_trainer_ote3.svg'
+import app from '../../firebase';
+
 
 const Header = styled.div`
      text-align:center;
@@ -91,54 +93,94 @@ const ImageWrapper = styled.div`
 
 
 const SignUp = ({ history }) => {
-    const [name, setName] = useState('')
-    // const [email, setEmail] = useState('')
-    // const [password, setPassword] = useState('')
-    // const [code, setCode] = useState('')
+     const [name, setName] = useState('')
+     const [isError, setIsError] = useState("");
+     const [isLoading, setIsLoading] = useState(false)
+     // const [email, setEmail] = useState('')
+     // const [password, setPassword] = useState('')
+     // const [code, setCode] = useState('')
 
-    const handleSignUp = useCallback();
-    // async event => {
-    //     event.preventDefault();
-    //     const { email, password } = event.target.elements
-    //     try {
-    //         await app.auth().createUserWithEmailAndPassword(email.value, password.value);
-    //         history.push('/weights')
-    //     } catch (error) {
-    //         alert(error);
-    //     }
-    // }
+     const handleSignUp = async event => {
+          event.preventDefault();
 
-    return (
-        <Div>
-            <Section>
-                <Header>
-                    <h1>Welcome ! SignUp Here </h1>
-                </Header>
-                <ImageWrapper>
-                    <Image src={fitman} alt="joggling" />
-                </ImageWrapper>
-                <FormWrapper>
-                    <Form onSubmit={handleSignUp}>
-                        <div>
-                            <Label htmlFor="name">Name</Label>
-                            <input value={name} type="text" placeholder='Enter your Name ...' onChange={(e) => setName(e.target.value)} />
-                        </div>
-                        <div>
-                            <Label htmlFor="name">Email</Label>
-                            <input type="email" name="email" placeholder='Enter your email address..' />
-                        </div>
-                        <div>
-                            <Label htmlFor="name">Password</Label>
-                            <input name="password" type="password" placeholder='Enter password' />
-                        </div>
-                        <input type="submit" value="Sign Up" />
-                    </Form>
-                </FormWrapper>
-            </Section>
-        </Div>
+          const { email, password } = event.target.elements
+          try {
+               setIsLoading(true)
+               await app.auth().createUserWithEmailAndPassword(email.value, password.value);
+               setIsLoading(null)
+               history.push('/weights')
+          } catch (error) {
+               setIsError(error.message)
+               setIsLoading(null)
+          }
+     }
 
 
-    );
+
+
+
+
+     const notificationsButtons = (message, type) => {
+          store.addNotification({
+               title: 'ALert',
+               message: `${message}`,
+               type: `${type}`,
+               container: 'top-center',
+               animationIn: ["animated", "fadeIn"],
+               animationOut: ["animated", "fadeOut"],
+               dismiss: {
+                    duration: 3000
+               }
+          })
+     }
+
+
+
+     return (
+          <Div>
+               <Section>
+                    <Header>
+                         <h1>Welcome ! SignUp Here </h1>
+                    </Header>
+                    <ImageWrapper>
+                         <Image src={fitman} alt="joggling" />
+                    </ImageWrapper>
+                    {isError && <h2>{notificationsButtons(isError, 'danger')}</h2>}
+                    {isLoading && <h1>Loading......</h1>}
+                    <FormWrapper>
+                         <Form onSubmit={handleSignUp}>
+                              <div>
+                                   <Label htmlFor="name">
+                                        <FontAwesomeIcon style={{ 'marginRight': '1rem' }}
+                                             icon="user"
+                                             size="1x"
+                                        />Name</Label>
+                                   <input type="text" placeholder='Enter your Name ...' />
+                              </div>
+                              <div>
+                                   <Label htmlFor="name">
+                                        <FontAwesomeIcon style={{ 'marginRight': '1rem' }}
+                                             icon="envelope"
+                                             size="1x"
+                                        />Email</Label>
+                                   <input type="email" name="email" placeholder='Enter your email address..' />
+                              </div>
+                              <div>
+                                   <Label htmlFor="name">
+                                        <FontAwesomeIcon style={{ 'marginright': '1rem' }}
+                                             icon="key"
+                                             size="1x"
+                                        />Password</Label>
+                                   <input name="password" type="password" placeholder='Enter password' />
+                              </div>
+                              <input type="submit" value="Sign Up" />
+                         </Form>
+                    </FormWrapper>
+               </Section>
+          </Div>
+
+
+     );
 }
 
 export default withRouter(SignUp);
