@@ -4,6 +4,7 @@ import { store } from "react-notifications-component";
 import { withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import fitman from "../../img/logo/undraw_personal_trainer_ote3.svg";
+import Loader from "../loader/Loader";
 import app from "../../firebase";
 
 const Header = styled.div`
@@ -50,7 +51,7 @@ const Form = styled.form`
     border: none;
   }
 
-  input[type="submit"] {
+  button {
     padding: 7px 25px;
     width: 100%;
     border-radius: 6px;
@@ -120,17 +121,19 @@ const SignUp = ({ history }) => {
   };
 
   const notificationsButtons = (message, type) => {
-    store.addNotification({
-      title: "ALert",
-      message: `${message}`,
-      type: `${type}`,
-      container: "top-center",
-      animationIn: ["animated", "fadeIn"],
-      animationOut: ["animated", "fadeOut"],
-      dismiss: {
-        duration: 1000
-      }
-    });
+    setTimeout(() => {
+      store.addNotification({
+        title: "",
+        message: `${message}`,
+        type: `${type}`,
+        container: "top-center",
+        animationIn: ["animated", "fadeIn"],
+        animationOut: ["animated", "fadeOut"],
+        dismiss: {
+          duration: 1000
+        }
+      });
+    }, 2000);
   };
 
   return (
@@ -143,7 +146,6 @@ const SignUp = ({ history }) => {
           <Image src={fitman} alt="joggling" />
         </ImageWrapper>
         {isError && <h2>{notificationsButtons(isError, "danger")}</h2>}
-        {isLoading && <h1>Loading......</h1>}
         <FormWrapper>
           <Form onSubmit={handleSignUp}>
             <div>
@@ -187,7 +189,7 @@ const SignUp = ({ history }) => {
                 placeholder="Enter password"
               />
             </div>
-            <input type="submit" value="Sign Up" />
+            <button type="submit"> {isLoading ? <Loader /> : "Signup"}</button>
             <Info>
               <p>Have an account login here</p>
               <a href="/login">Login</a>

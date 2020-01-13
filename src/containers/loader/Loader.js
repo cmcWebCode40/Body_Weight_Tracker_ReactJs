@@ -3,14 +3,14 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Wrapper = styled.div`
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  //   background: var(--color-bodyDark);
-  margin: 20px 20px;
-  height: 400px;
-  width: 400px;
+  //   position: absolute;
+  //   transform: translate(-50%, -50%);
+  //   top: 50%;
+  //   left: 50%;
+  //   //   background: var(--color-bodyDark);
+  //   margin: 20px 20px;
+  //   height: 400px;
+  //   width: 400px;
 `;
 const Content = styled.div`
   display: flex;
@@ -26,7 +26,7 @@ const Loader = () => {
   return (
     <Wrapper>
       <Content>
-        <FontAwesomeIcon icon="times-circle" size="4x" color="red" spin />
+        <FontAwesomeIcon icon="spinner" size="1x" color="#2e7ef0" spin />
       </Content>
     </Wrapper>
   );

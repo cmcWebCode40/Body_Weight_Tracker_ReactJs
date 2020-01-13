@@ -60,7 +60,7 @@ const Form = styled.form`
     border: none;
   }
 
-  input[type="submit"] {
+  button {
     padding: 7px 25px;
     width: 100%;
     border-radius: 6px;
@@ -115,7 +115,7 @@ const Login = ({ history }) => {
       history.push("/weights");
     } catch (error) {
       setIsError(error.message);
-      setIsLoading(false);
+      setTimeout(() => setIsLoading(false), 3000);
     }
   };
 
@@ -130,13 +130,13 @@ const Login = ({ history }) => {
       animationIn: ["animated", "fadeIn"],
       animationOut: ["animated", "fadeOut"],
       dismiss: {
-        duration: 1000
+        duration: 2000
       }
     });
   };
 
   if (!currentUser) {
-    return <Redirect to="/weights" />;
+    return <Redirect to="/" />;
   }
 
   return (
@@ -180,18 +180,8 @@ const Login = ({ history }) => {
               name="password"
             />
           </div>
-          <input type="submit" value="Login" />
-          {isLoading && (
-            <Loader />
-            //    <ServerPage>
-            //      <FontAwesomeIcon
-            //        style={{ margin: " 4rem auto" }}
-            //        icon="spinner"
-            //        size="3x"
-            //        spin
-            //      />
-            //    </ServerPage>
-          )}
+          <button type="submit"> {isLoading ? <Loader /> : "Login"}</button>
+
           <Info>
             <p>Have an account login here</p>
             <a href="/signup">Register</a>
