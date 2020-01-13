@@ -8,11 +8,11 @@ import fitman from "../../img/logo/undraw_personal_trainer_ote3.svg";
 import Loader from "../loader/Loader";
 import app from "../../firebase";
 
-const ServerPage = styled.div`
-  background: var(--color-white);
-  height: 100vh;
-  z-index: 2;
-`;
+// const ServerPage = styled.div`
+//   background: var(--color-white);
+//   height: 100vh;
+//   z-index: 2;
+// `;
 const Header = styled.div`
   text-align: center;
   margin: 1rem 0 0 0;
@@ -25,12 +25,14 @@ const Header = styled.div`
     padding: 40px 0 0 0;
   }
 `;
+
 const Label = styled.label`
   display: block;
   color: var(--color-white);
   font-size: 1.7rem;
   font-weight: 400;
 `;
+
 const FormWrapper = styled.div`
   position: absolute;
   transform: translate(-60%, -80%);
@@ -76,6 +78,7 @@ const Div = styled.div`
   height: 100vh;
   width: 100%;
 `;
+
 const Image = styled.img`
   height: 130px;
   width: 130px;
@@ -133,22 +136,11 @@ const Login = ({ history }) => {
   };
 
   if (!currentUser) {
-    return <Redirect to="/login" />;
+    return <Redirect to="/weights" />;
   }
 
   return (
     <Div>
-      {isLoading && (
-        <Loader />
-        //    <ServerPage>
-        //      <FontAwesomeIcon
-        //        style={{ margin: " 4rem auto" }}
-        //        icon="spinner"
-        //        size="3x"
-        //        spin
-        //      />
-        //    </ServerPage>
-      )}
       <Header>
         <h1>Welcome Back ! Login Here </h1>
       </Header>
@@ -189,6 +181,17 @@ const Login = ({ history }) => {
             />
           </div>
           <input type="submit" value="Login" />
+          {isLoading && (
+            <Loader />
+            //    <ServerPage>
+            //      <FontAwesomeIcon
+            //        style={{ margin: " 4rem auto" }}
+            //        icon="spinner"
+            //        size="3x"
+            //        spin
+            //      />
+            //    </ServerPage>
+          )}
           <Info>
             <p>Have an account login here</p>
             <a href="/signup">Register</a>

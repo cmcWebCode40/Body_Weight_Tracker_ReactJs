@@ -7,20 +7,26 @@ const Wrapper = styled.div`
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
-  background: var(--color-bodyDark);
-  width: 100%;
+  //   background: var(--color-bodyDark);
+  margin: 20px 20px;
+  height: 400px;
+  width: 400px;
 `;
 const Content = styled.div`
   display: flex;
   jsutify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  text-align: center;
 `;
 
 const Loader = () => {
   return (
     <Wrapper>
       <Content>
-        <FontAwesomeIcon icon="times-circle" size="4x" color="#eaea" spin />
+        <FontAwesomeIcon icon="times-circle" size="4x" color="red" spin />
       </Content>
     </Wrapper>
   );
