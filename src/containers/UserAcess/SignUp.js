@@ -167,10 +167,10 @@ const SignUp = ({ history }) => {
                               </div>
                               <div>
                                    <Label htmlFor="name">
-                                        <FontAwesomeIcon style={{ 'marginright': '1rem' }}
-                                             icon="key"
-                                             size="1x"
-                                        />Password</Label>
+                                <FontAwesomeIcon style={{ 'marginright': '1rem' }}
+                                        icon="key"
+                                        size="1x"
+                                />Password</Label>
                                    <input name="password" type="password" placeholder='Enter password' />
                               </div>
                               <input type="submit" value="Sign Up" />

@@ -1,20 +1,22 @@
 
 
 #fullhand {
-     position: relative;
+     /* position: relative;
      animation: hand 1s infinite;
      transform-origin: center;
-     transform-box:fill-box;
+     transform-box: fill-box;
+     transition: transform 1s ease-in; */
 }
 
 
 
 @keyframes hand  {
-     from {
-          transform: translateX(100px)
+     /* from {
+          transform: translateY(20px)
      }
 
      to{
-          transform: translateX(0)
-     }
+          transform: translateX(-5px)
+          
+     } */
 }

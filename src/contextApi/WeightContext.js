@@ -37,9 +37,9 @@ const WeightProvider = ({ children }) => {
 
      }, [weights])
 
-     // useEffect(() => {
-     //      app.auth().onAuthStateChanged(setCurrentUser);
-     // }, [])
+     useEffect(() => {
+          app.auth().onAuthStateChanged(setCurrentUser);
+     }, [])
 
 
      return (
