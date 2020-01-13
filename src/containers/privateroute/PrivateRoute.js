@@ -1,23 +1,21 @@
-import React, { useContext } from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { WeightContext } from '../../contextApi/WeightContext';
-
+import React, { useContext } from "react";
+import { Route, Redirect } from "react-router-dom";
+import { WeightContext } from "../../contextApi/WeightContext";
 
 const PrivateRoute = ({ component: RouteComponent, ...rest }) => {
-     const { currentUser } = useContext(WeightContext);
+  const { currentUser } = useContext(WeightContext);
 
-     // return (
-     //      <Route>
-     //           render = {
-     //                routeProps =>
-     //                     !!currentUser ?
-     //                          (<RouteComponent {...routeProps} />)
-     //                          :
-     //                          (<Redirect to={'/login'} />)
-     //           }
-     //      </Route>
-
-     // )
+  return (
+    <Route
+      render={routeProps =>
+        !currentUser ? (
+          <RouteComponent {...routeProps} />
+        ) : (
+          <Redirect to={"/"} />
+        )
+      }
+    />
+  );
 };
 
 export default PrivateRoute;
