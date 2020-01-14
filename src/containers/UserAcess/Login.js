@@ -111,16 +111,9 @@ const Login = ({ history }) => {
     } catch (error) {
       setIsError(error.message);
       setTimeout(() => setIsLoading(false), 3000);
-      clearTimeout(notificationsButtons);
+      setIsError("");
     }
   };
-
-  //   useEffect(() => {
-  //        effect
-  //        return () => {
-  //             cleanup
-  //        };
-  //   })
 
   const [currentUser] = useContext(WeightContext);
 
@@ -136,6 +129,7 @@ const Login = ({ history }) => {
         duration: 2000
       }
     });
+    setIsError("");
   };
 
   if (!currentUser) {

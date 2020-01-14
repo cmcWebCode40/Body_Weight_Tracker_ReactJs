@@ -113,24 +113,23 @@ const SignUp = ({ history }) => {
     } catch (error) {
       setIsError(error.message);
       setIsLoading(null);
+      setIsError("");
     }
   };
 
   const notificationsButtons = (message, type) => {
-    setTimeout(() => {
-      store.addNotification({
-        title: "",
-        message: `${message}`,
-        type: `${type}`,
-        container: "top-center",
-        animationIn: ["animated", "fadeIn"],
-        animationOut: ["animated", "fadeOut"],
-        dismiss: {
-          duration: 1000
-        }
-      });
-    }, 2000);
-    clearTimeout();
+    store.addNotification({
+      title: "",
+      message: `${message}`,
+      type: `${type}`,
+      container: "top-center",
+      animationIn: ["animated", "fadeIn"],
+      animationOut: ["animated", "fadeOut"],
+      dismiss: {
+        duration: 2000
+      }
+    });
+    setIsError("");
   };
 
   return (
