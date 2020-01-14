@@ -96,12 +96,8 @@ const Info = styled.div`
 `;
 
 const SignUp = ({ history }) => {
-  const [name, setName] = useState("");
   const [isError, setIsError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  // const [email, setEmail] = useState('')
-  // const [password, setPassword] = useState('')
-  // const [code, setCode] = useState('')
 
   const handleSignUp = async event => {
     event.preventDefault();
@@ -134,6 +130,7 @@ const SignUp = ({ history }) => {
         }
       });
     }, 2000);
+    clearTimeout();
   };
 
   return (
