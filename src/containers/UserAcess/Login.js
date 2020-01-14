@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { store } from "react-notifications-component";
@@ -8,11 +8,6 @@ import fitman from "../../img/logo/undraw_personal_trainer_ote3.svg";
 import Loader from "../loader/Loader";
 import app from "../../firebase";
 
-// const ServerPage = styled.div`
-//   background: var(--color-white);
-//   height: 100vh;
-//   z-index: 2;
-// `;
 const Header = styled.div`
   text-align: center;
   margin: 1rem 0 0 0;
@@ -116,8 +111,16 @@ const Login = ({ history }) => {
     } catch (error) {
       setIsError(error.message);
       setTimeout(() => setIsLoading(false), 3000);
+      clearTimeout(notificationsButtons);
     }
   };
+
+  //   useEffect(() => {
+  //        effect
+  //        return () => {
+  //             cleanup
+  //        };
+  //   })
 
   const [currentUser] = useContext(WeightContext);
 
