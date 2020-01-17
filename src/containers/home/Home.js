@@ -30,10 +30,10 @@ const Wrapper = styled.div`
      // }
 
      @media ${props => (props.theme.mediaQueries.small)} {
-          height: 100vh;
-          margin: 0 5rem 0 -5rem;
-          width:100%;
-          font-size: .3rem;
+        height: 100vh;
+        margin: 0 5rem 0 -5rem;
+        width:100%;
+        font-size: .3rem;
      
      }
 
@@ -102,10 +102,10 @@ const ContentText = styled.div`
      overflow:hidden;
 
 
-     @media${props => (props.theme.mediaQueries.small)} {
-          font-size: 2rem;
-          margin: 0 rem 0 0;
-          padding:  0 .3rem  0 .6rem;
+     @media${props => (props.theme.mediaQueries.smaillest)} {
+        font-size: 2rem;
+        margin: 0 rem 0 0;
+        padding:  0 .3rem  0 .6rem;
           
      }
 
