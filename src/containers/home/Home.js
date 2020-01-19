@@ -53,6 +53,9 @@ const Content = styled.div`
     @media${props => (props.theme.mediaQueries.iphone4)} {
         margin: 15rem auto ;
     }
+    @media${props => (props.theme.mediaQueries.large)} {
+        margin: 3rem auto ;
+    }
      
      
      
