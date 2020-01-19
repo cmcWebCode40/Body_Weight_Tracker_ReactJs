@@ -14,7 +14,7 @@ import Home from "../containers/home/Home.js";
 import SignUp from "../containers/UserAcess/SignUp";
 import Login from "../containers/UserAcess/Login";
 import Weights from "../containers/bodyweight/Weights";
-// import PrivateRoute from "../containers/privateroute/PrivateRoute";
+import PrivateRoute from "../containers/privateroute/PrivateRoute";
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -41,7 +41,7 @@ const Layout = () => {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/Login" exact component={Login} />
-            <Route path="/weights" exact component={Weights} />
+            <PrivateRoute path="/weights" exact component={Weights} />
             <Route path="/Signup" exact component={SignUp} />
             <Route component={PageNotFound} />
             <Redirect to="/" />

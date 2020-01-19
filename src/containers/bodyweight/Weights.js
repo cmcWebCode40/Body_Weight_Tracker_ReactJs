@@ -137,15 +137,11 @@ function Weights({ history }) {
     e.preventDefault();
     setText(e.target.value);
   };
-
-  const addWeights = text => {
-    setWeights([...weights, { weighs: text, id: uuid() }]);
-    console.log(weights);
-  };
+  1;
 
   const handleSubmit = e => {
     e.preventDefault();
-    addWeights(text);
+    setWeights([...weights, { weighs: text, id: uuid() }]);
     notificationsButton("New Weight Added", "success");
     setText("");
     console.log(weights);
@@ -184,7 +180,7 @@ function Weights({ history }) {
 
       <ListWrapper>
         <h3> Your Track List</h3>
-        {weights.length ? (
+        {weights ? (
           weights.map(weight => (
             <WeightItems
               key={weight.id}

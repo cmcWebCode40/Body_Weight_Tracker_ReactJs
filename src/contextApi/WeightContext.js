@@ -34,12 +34,12 @@ const WeightProvider = ({ children }) => {
   // }
 
   useEffect(() => {
-    localStorage.setItem("weights", JSON.stringify(weights));
-  }, [weights]);
+    app.auth().onAuthStateChanged(setCurrentUser);
+  }, [currentUser]);
 
   useEffect(() => {
-    app.auth().onAuthStateChanged(setCurrentUser);
-  }, []);
+    localStorage.setItem("weights", JSON.stringify(weights));
+  }, [weights]);
 
   return (
     <WeightContext.Provider
