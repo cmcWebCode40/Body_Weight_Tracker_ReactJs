@@ -14,7 +14,7 @@ const Wrapper = styled.div`
      text-align: center;
      overflow: hidden;
      // margin: 5rem 0 -6rem 0;
-     height: 100vh;
+    //  height: 100vh;
      width:100%;
 
      // @media${props => (props.theme.mediaQueries.medium)} {
