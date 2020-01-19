@@ -141,9 +141,9 @@ const SignUp = ({ history }) => {
         <ImageWrapper>
           <Image src={fitman} alt="joggling" />
         </ImageWrapper>
-        {isError && <h2>{notificationsButtons(isError, "danger")}</h2>}
         <FormWrapper>
           <Form onSubmit={handleSignUp}>
+            {isError && { isError }}
             <div>
               <Label htmlFor="name">
                 <FontAwesomeIcon
@@ -197,4 +197,4 @@ const SignUp = ({ history }) => {
   );
 };
 
-export default withRouter(SignUp);
+export default SignUp;

@@ -137,7 +137,6 @@ function Weights({ history }) {
     e.preventDefault();
     setText(e.target.value);
   };
-  1;
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -161,7 +160,6 @@ function Weights({ history }) {
       <Form onSubmit={handleSubmit}>
         <input
           type="number"
-          value={text}
           onChange={handleChange}
           placeholder="enter your weights..."
           required
