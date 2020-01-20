@@ -41,7 +41,7 @@ const Layout = () => {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/login" exact component={Login} />
-            <PrivateRoute path="/weights" component={Weights} />
+            <Route path="/weights" component={Weights} />
             <Route path="/signup" exact component={SignUp} />
             <Route component={PageNotFound} />
             <Redirect to="/" />
