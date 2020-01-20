@@ -12,15 +12,10 @@ import {
   faTimesCircle,
   faServer,
   faSpinner,
-  faInfoCircle,
-  faThumbsUp,
-  faComment,
-  faShare
+  faInfoCircle
 } from "@fortawesome/free-solid-svg-icons";
 import WeightProvider from "./contextApi/WeightContext";
 import Layout from "./layout/layout";
-
-
 
 library.add(
   faEnvelope,

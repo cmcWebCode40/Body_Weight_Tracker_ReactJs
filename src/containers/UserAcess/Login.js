@@ -1,8 +1,8 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { store } from "react-notifications-component";
-import { withRouter, Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { WeightContext } from "../../contextApi/WeightContext";
 import fitman from "../../img/logo/undraw_personal_trainer_ote3.svg";
 import Loader from "../loader/Loader";
@@ -115,7 +115,7 @@ const Login = ({ history }) => {
     }
   };
 
-  const [currentUser] = useContext(WeightContext);
+  // const [currentUser] = useContext(WeightContext);
 
   const notificationsButtons = (message, type) => {
     store.addNotification({

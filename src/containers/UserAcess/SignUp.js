@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { store } from "react-notifications-component";
 import { withRouter } from "react-router-dom";
@@ -68,6 +68,7 @@ const Div = styled.div`
   background: var(--color-bodyColor);
   height: 100vh;
   width: 100%;
+  padding: 0 0 2rem 0;
 `;
 const Section = styled.section`
   margin: 3rem 0 0 0;
@@ -95,10 +96,10 @@ const Info = styled.div`
   }
 `;
 
-const ErrorMessage = styled.span`
-  color: #fff;
-  background: red;
-`;
+// const ErrorMessage = styled.span`
+//   color: #fff;
+//   background: red;
+// `;
 
 const SignUp = ({ history }) => {
   const [isError, setIsError] = useState("");

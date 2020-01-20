@@ -131,7 +131,7 @@ const LogoutBtn = styled.button`
 function Weights({ history }) {
   const [weights, setWeights, notificationsButton] = useContext(WeightContext);
   // const [editItem, setEditItem] = useContext(WeightContext);
-  const [text, setText] = useState();
+  const [text, setText] = useState("");
 
   const handleChange = e => {
     e.preventDefault();
@@ -141,8 +141,8 @@ function Weights({ history }) {
   const handleSubmit = e => {
     e.preventDefault();
     setWeights([...weights, { weighs: text, id: uuid() }]);
-    notificationsButton("New Weight Added", "success");
     setText("");
+    notificationsButton("New Weight Added", "success");
     console.log(weights);
   };
 
