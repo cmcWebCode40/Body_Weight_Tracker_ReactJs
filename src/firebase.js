@@ -6,7 +6,7 @@ import "dotenv";
 // console.log(process.env.REACT_APP_FIREBASE_KEY);
 
 const app = firebase.initializeApp({
-  apiKey: "AIzaSyB-N_eRslkX11GRbyRQC2l__s55SICeVZw",
+  apiKey: process.env.REACT_APP_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
   databaseURL: process.env.REACT_APP_FIREBASE_DATABASE,
   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
