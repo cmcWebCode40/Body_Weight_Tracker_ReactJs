@@ -7,7 +7,6 @@ const Wrapper = styled.div`
   //   transform: translate(-50%, -50%);
   //   top: 50%;
   //   left: 50%;
-  //   //   background: var(--color-bodyDark);
   //   margin: 20px 20px;
   //   height: 400px;
   //   width: 400px;

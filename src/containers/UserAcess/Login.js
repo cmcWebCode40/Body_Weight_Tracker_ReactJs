@@ -115,7 +115,7 @@ const Login = ({ history }) => {
     }
   };
 
-  const [currentUser] = useContext(WeightContext);
+  //   const [currentUser] = useContext(WeightContext);
 
   const notificationsButtons = (message, type) => {
     store.addNotification({
@@ -132,9 +132,9 @@ const Login = ({ history }) => {
     setIsError("");
   };
 
-  if (!currentUser) {
-    return <Redirect to="/" />;
-  }
+  //     if (currentUser) {
+  //       return <Redirect to="/" />;
+  //     }
 
   return (
     <Div>
@@ -189,4 +189,4 @@ const Login = ({ history }) => {
   );
 };
 
-export default Login;
+export default withRouter(Login);

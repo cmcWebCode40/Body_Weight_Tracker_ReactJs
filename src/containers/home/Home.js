@@ -14,20 +14,20 @@ const Wrapper = styled.div`
      text-align: center;
      overflow: hidden;
      // margin: 5rem 0 -6rem 0;
-    //  height: 100vh;
+     height: 100vh;
      width:100%;
 
-     // @media${props => (props.theme.mediaQueries.medium)} {
-     //      overflow:hidden;
-     //      height: 100vh;
+     @media${props => (props.theme.mediaQueries.medium)} {
+          overflow:hidden;
+          height: 100vh;
 
-     // }
+     }
 
-     // @media${props => (props.theme.mediaQueries.iphone4)} {
-     //      height: 80vh;
-     //      font-size: 1rem;
+     @media${props => (props.theme.mediaQueries.iphone4)} {
+          height: 80vh;
+          font-size: 1rem;
 
-     // }
+     }
 
      @media ${props => (props.theme.mediaQueries.small)} {
         height: 100vh;
@@ -132,6 +132,10 @@ const Heading = styled.h1`
 
      } 
 
+     @media${props => (props.theme.mediaQueries.large)} {
+        font-size: 1.8rem;
+     }
+
      @media${props => (props.theme.mediaQueries.smallest)} {
           font-size: 1.9rem;
 
@@ -153,28 +157,23 @@ const Div = styled.div`
      }
 `
 
-const BackgroundImage = styled.svg`
-display: flex;
-align-items:center;
-justify-content: center;
-background-position : center;
-background-size: 100% 100%;
-height: 100vh;
+// const BackgroundImage = styled.svg`
+// display: flex;
+// align-items:center;
+// justify-content: center;
+// background-position : center;
+// background-size: 100% 100%;
+// height: 100vh;
 
-`
+// `
 
 
 
 
 const Home = () => {
-    //
-
-
     return (
         <Wrapper>
             <Content>
-
-
                 <ImageWrapper>
                     <BgImage width="142" height="143" viewBox="0 0 342 243" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="logo">
@@ -379,6 +378,7 @@ const Home = () => {
         </Wrapper>
     )
 }
+
 
 
 

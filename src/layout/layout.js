@@ -40,9 +40,9 @@ const Layout = () => {
           <ReactNotifications />
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/Login" exact component={Login} />
-            <PrivateRoute path="/weights" exact component={Weights} />
-            <Route path="/Signup" exact component={SignUp} />
+            <Route path="/login" exact component={Login} />
+            <PrivateRoute path="/weights" component={Weights} />
+            <Route path="/signup" exact component={SignUp} />
             <Route component={PageNotFound} />
             <Redirect to="/" />
           </Switch>
