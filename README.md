@@ -15,14 +15,14 @@ This is a react based app that helps you keep your body weight in check by simpl
 
 ## Getting Started
 
-*run `npm start` for development mode.
-*run `npm run build` for production mode.
+- run `npm start` for development mode.
+- run `npm run build` for production mode.
 
 ## Website
 
 - This web App is hosted on [netlify.com](bodyweighttrackker.netlify.com)
 
-- This is my WebApp link [ bodyweighttrackker](bodyweighttrackker.netlify.com))
+- This is my WebApp link [bodyweighttrackker](bodyweighttrackker.netlify.com)
 
 ## Contact
 

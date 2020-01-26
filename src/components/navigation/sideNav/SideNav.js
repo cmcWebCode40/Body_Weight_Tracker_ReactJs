@@ -52,9 +52,6 @@ const MenuBody = styled.div`
      left: 0;
      background: var(--color-bodyColor);
 `
-// const LandingPage = styled(Home) `
-//      visibility : ${props => (props.opened ? 'visible' : 'hidden')};
-// `
 
 const SideNav = () => {
      const [isOpened, SetIsOpened] = useState(false)
